@@ -37,6 +37,7 @@ class BinaryTree:
  
     def __init__(self, inputArray):
         self.root = BinaryTreeNode(inputArray[0])
+        self.size = 1
         i = 1
         while i < len(inputArray):
             self.add(inputArray[i])
