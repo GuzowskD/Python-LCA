@@ -36,6 +36,10 @@ class BinaryTree:
 
  
     def __init__(self, inputArray):
+        if inputArray == None:
+            return
+        if len(inputArray) == 0:
+            return
         self.root = BinaryTreeNode(inputArray[0])
         self.size = 1
         i = 1
@@ -51,14 +55,14 @@ class BinaryTree:
         
         if(node.value == value):
             return node
-        elif(node.value < value):
+        elif(node.value > value):
             return self.search(node.left, value, path)
         else:
             return self.search(node.right, value, path)
 
     def printTree(self, node, prefix):
         if(node == None):
-            return prefix + "-null\n"
+            return prefix + "-None\n"
         return prefix + "-" + node.value + "\n" + self.printTree(node.right, prefix + " |") + self.printTree(node.left, prefix + "  ")
 
     def getSize(self):
@@ -79,12 +83,14 @@ class BinaryTree:
         if(node2 == None):
             print(value2 + " does not exist in the tree!")
             return "None"
+        if(node1 == node2):
+            return node1.value # Values were identical
 
         length = len(path1)
         for i in range(length):
             if not path1[i] in path2:
                 return path1[i - 1]
         
-        return "None"
+        return node1.value #Path 1 was shorter -> LCA = last value of Path 1
 
     
