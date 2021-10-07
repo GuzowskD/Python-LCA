@@ -12,10 +12,12 @@ class BinaryTree:
     root = None
     size = 0
     def add(self, value):
+        if value == None:
+            return
         node = self.root
         while(True):
             if(node.value == value):
-                print("Duplicate value: " + value)
+                print("Duplicate value: " + str(value))
                 return
             
             if(node.value > value):
@@ -63,25 +65,30 @@ class BinaryTree:
     def printTree(self, node, prefix):
         if(node == None):
             return prefix + "-None\n"
-        return prefix + "-" + node.value + "\n" + self.printTree(node.right, prefix + " |") + self.printTree(node.left, prefix + "  ")
+        return prefix + "-" + str(node.value) + "\n" + self.printTree(node.right, prefix + " |") + self.printTree(node.left, prefix + "  ")
 
     def getSize(self):
         return self.size
+
+    def shape(self):
+        return self.printTree(self.root, "")
 
     def print(self):
         print(self.printTree(self.root, ""))
 
     def LCA(self, value1, value2):
+        if value1 == None or value2 == None:
+            return "None"
         path1 = []
         path2 = []
         node1 = self.search(self.root, value1, path1)
         node2 = self.search(self.root, value2, path2)
 
         if(node1 == None):
-            print(value1 + " does not exist in the tree!")
+            print(str(value1) + " does not exist in the tree!")
             return "None"
         if(node2 == None):
-            print(value2 + " does not exist in the tree!")
+            print(str(value2) + " does not exist in the tree!")
             return "None"
         if(node1 == node2):
             return node1.value # Values were identical

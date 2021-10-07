@@ -1,4 +1,3 @@
-from os import read
 from BinaryTree import BinaryTree
 
 def readFile(filename):
@@ -11,8 +10,8 @@ def readFile(filename):
         print("File not found or could not be opened.")
         return []
     
-
 def main():
+
     filepath = input("Enter the location of the input file: ")
     print(len(filepath))
     if len(filepath) > 0:
