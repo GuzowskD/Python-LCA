@@ -2,7 +2,6 @@
 
 #### Requirements
 - python3
-- Program is intended to run on a terminal.
 
 ## 1. Clone the repository
 ```
