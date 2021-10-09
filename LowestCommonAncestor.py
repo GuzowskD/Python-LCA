@@ -11,9 +11,7 @@ def readFile(filename):
         return []
     
 def main():
-
     filepath = input("Enter the location of the input file: ")
-    print(len(filepath))
     if len(filepath) > 0:
         list = readFile(filepath)
     else:
