@@ -1,5 +1,9 @@
 # Python-LCA
 
+#### Requirements
+python3
+Program is intended to run on a terminal.
+
 ## 1. Clone the repository
 ```
 git clone https://github.com/GuzowskD/Python-LCA.git
